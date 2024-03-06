@@ -23,13 +23,14 @@ class TestBurger:
         burger.remove_ingredient(0)
         assert ingredient not in burger.ingredients
 
-    def test_move_ingredient(self):
-        ingredient = Mock()
-        new_index = 1
+    def test_move_ingredientX(self):
+        ingredient1 = Mock()
+        ingredient2 = Mock()
         burger = Burger()
-        burger.add_ingredient(ingredient)
-        burger.move_ingredient(0, new_index)
-        assert ingredient in burger.ingredients
+        burger.add_ingredient(ingredient1)
+        burger.add_ingredient(ingredient2)
+        burger.move_ingredient(1, 0)
+        assert burger.ingredients[0] == ingredient2 and burger.ingredients[1] == ingredient1
 
     def test_get_price(self):
         price = 10
